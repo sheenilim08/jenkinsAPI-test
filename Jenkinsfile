@@ -2,7 +2,8 @@ def gv
 
 pipeline {
     agent any 
-    stage("init"){
+    stages {
+        stage("init"){
         steps {
             script {
                 gv = load "script.groovy"
@@ -33,5 +34,6 @@ pipeline {
                 gv.deployAPI()
             }
         }
+    }
     }
 }

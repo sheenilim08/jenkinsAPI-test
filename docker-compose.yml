@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  mongoDB:
+    image: mongo:5.0.22
+    restart: always
+    ports:
+      - 27018:27017
+    volumes:
+      - mongoDB:/data/db
+
+  api:
+    build:
+      dockerfile: Dockerfile.dev
+      context: .
+
+    ports:
+      - 9008:9008
+    depends_on:
+      - mongoDB
+    environment:
+      PORT: 9008
+      DB_URL: mongodb://mongoDB:27017
+      DB_NAME: golf
+
+volumes:
+  mongoDB: {}

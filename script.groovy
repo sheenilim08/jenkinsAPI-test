@@ -10,6 +10,7 @@ def buildImage(){
 
 def deployAPI(){
     echo "deploying dev api..."
+    echo "deploying dev......"
 }
 
 def testAPI(){

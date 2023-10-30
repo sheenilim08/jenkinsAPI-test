@@ -21,7 +21,9 @@ pipeline {
             steps {
                 script{
                     echo "increment app version..."
+                    sh 'cat package.json'
                     sh 'npm version patch'
+                    sh 'cat package.json'
                     def matcher = readFile('package.json') =~ /"version": "([^"]+)"/
                     def version = matcher[0][1]
                     env.IMAGE_NAME = "$version-$BUILD_NUMBER"

@@ -22,7 +22,7 @@ pipeline {
                 script{
                     echo "increment app version..."
                     sh 'cat package.json'
-                    sh 'npm version patch'
+                    sh 'npm version patch -f package.json'
                     sh 'cat package.json'
                     def matcher = readFile('package.json') =~ /"version": "([^"]+)"/
                     def version = matcher[0][1]

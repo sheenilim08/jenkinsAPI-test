@@ -17,4 +17,6 @@ const httpGet = async (req, res, next) => {
   });
 };
 
+const httpTest = async (req, res, next) => {};
+
 module.exports = { httpAdd, httpGet };

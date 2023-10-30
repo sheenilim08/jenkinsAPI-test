@@ -48,6 +48,14 @@ pipeline {
 
     }
 
+       stage("commit version update"){
+        steps {
+            script{
+                gv.commitBackToGit()
+            }
+        }
+    }
+
     stage("build"){
         steps {
             script {
@@ -64,12 +72,6 @@ pipeline {
         }
     }
 
-    stage("commit version update"){
-        steps {
-            script{
-                gv.commitBackToGit()
-            }
-        }
-    }
+ 
     }
 }

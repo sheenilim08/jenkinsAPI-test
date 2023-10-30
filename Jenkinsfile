@@ -11,8 +11,8 @@ pipeline {
             steps{
                 script{
                     echo "configuirng git..."
-                    sh 'git config --global user.name "phpnoida"'
-                    sh 'git config --global user.email "amitrepublik@gmail.com"'
+                    sh 'git config --global user.name "jenkins"'
+                    sh 'git config --global user.email "jenkins@example.com"'
                 }
             }
         }
@@ -22,7 +22,7 @@ pipeline {
                 script{
                     echo "increment app version..."
                     sh 'cat package.json'
-                    sh 'npm version patch -f package.json'
+                    sh 'npm version patch'
                     sh 'cat package.json'
                     def matcher = readFile('package.json') =~ /"version": "([^"]+)"/
                     def version = matcher[0][1]
@@ -60,6 +60,14 @@ pipeline {
         steps{
             script {
                 gv.deployAPI()
+            }
+        }
+    }
+
+    stage("commit version update"){
+        steps {
+            script{
+                gv.commitBackToGit()
             }
         }
     }

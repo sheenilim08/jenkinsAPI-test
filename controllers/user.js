@@ -13,7 +13,7 @@ const httpGet = async (req, res, next) => {
   res.status(200).json({
     status: true,
     users: resp,
-    msg: "ok",
+    msg: "ok1",
   });
 };
 

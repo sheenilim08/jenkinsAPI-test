@@ -7,6 +7,16 @@ pipeline {
     }
     stages {
 
+        stage('configure git'){
+            steps{
+                script{
+                    echo "configuirng git..."
+                    sh 'git config --global user.name "phpnoida"'
+                    sh 'git config --global user.email "amitrepublik@gmail.com"'
+                }
+            }
+        }
+
         stage("increment version"){
             steps {
                 script{

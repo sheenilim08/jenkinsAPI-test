@@ -1,6 +1,6 @@
 {
   "name": "jenkinsapi",
-  "version": "1.0.47",
+  "version": "1.0.55",
   "description": "",
   "main": "index.js",
   "scripts": {

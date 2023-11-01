@@ -18,7 +18,7 @@ def testAPI() {
 
 def commitBackToGit() {
     echo 'updating package.json in git...'
-    sshagent(credentials: ['gitlab-ssh']) {
+    sshagent(credentials: ['github-credentials']) {
         sh 'git status'
         sh 'git branch'
         sh 'git config --list'
